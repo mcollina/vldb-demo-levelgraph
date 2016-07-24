@@ -8,7 +8,7 @@ module.exports = function (state, prev, send) {
   const monuments = graph.monuments || []
 
   return html`
-    <div>
+    <div class="select-stop">
       Select your ${ state.graph.last ? "next" : "first" } stop:
       <form>
         <select>
