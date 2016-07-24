@@ -1,0 +1,188 @@
+@prefix s: <http://vldb2016.persistent.com/schema#> .
+@prefix l: <http://vldb2016.persistent.com/locations#> .
+l:2932773051 s:type s:memorial .
+l:2932773051 s:name "Dargah Hazrat Khwaja Mir Dard" .
+l:2932773051 s:latitude "28.6400135" .
+l:2932773051 s:longitude "77.2292995" .
+l:2932773051 s:nearby l:2416119458 .
+l:2932773051 s:nearby l:2945859685 .
+l:2932773051 s:nearby l:2962182563 .
+l:2932773051 s:nearby l:3424258726 .
+l:266809614 s:nearby l:2416119458 .
+l:266809614 s:nearby l:2945859685 .
+l:266809614 s:nearby l:2962182563 .
+l:266809614 s:nearby l:3424258726 .
+l:561254917 s:nearby l:2416119458 .
+l:561254917 s:nearby l:2945859685 .
+l:561254917 s:nearby l:2962182563 .
+l:561254917 s:nearby l:3424258726 .
+l:566188831 s:nearby l:2416119458 .
+l:566188831 s:nearby l:2945859685 .
+l:566188831 s:nearby l:2962182563 .
+l:566188831 s:nearby l:3424258726 .
+l:2323525222 s:nearby l:2416119458 .
+l:2323525222 s:nearby l:2945859685 .
+l:2323525222 s:nearby l:2962182563 .
+l:2323525222 s:nearby l:3424258726 .
+l:2323525223 s:nearby l:2416119458 .
+l:2323525223 s:nearby l:2945859685 .
+l:2323525223 s:nearby l:2962182563 .
+l:2323525223 s:nearby l:3424258726 .
+l:2323525224 s:nearby l:2416119458 .
+l:2323525224 s:nearby l:2945859685 .
+l:2323525224 s:nearby l:2962182563 .
+l:2323525224 s:nearby l:3424258726 .
+l:2323525225 s:nearby l:2416119458 .
+l:2323525225 s:nearby l:2945859685 .
+l:2323525225 s:nearby l:2962182563 .
+l:2323525225 s:nearby l:3424258726 .
+l:2323525226 s:nearby l:2416119458 .
+l:2323525226 s:nearby l:2945859685 .
+l:2323525226 s:nearby l:2962182563 .
+l:2323525226 s:nearby l:3424258726 .
+l:2323525227 s:nearby l:2416119458 .
+l:2323525227 s:nearby l:2945859685 .
+l:2323525227 s:nearby l:2962182563 .
+l:2323525227 s:nearby l:3424258726 .
+l:266809614 s:type s:monument .
+l:266809614 s:name "11 Murthi" .
+l:266809614 s:latitude "28.6100846" .
+l:266809614 s:longitude "77.1916382" .
+l:561254917 s:type s:museum .
+l:561254917 s:name "Parliament Museum" .
+l:561254917 s:latitude "28.6189234" .
+l:561254917 s:longitude "77.2077915" .
+l:561254917 s:description "'''Parliament museum''' is a museum in the [[Parliament of India]] Library Building in [[New Delhi]], close to the [[Sansad Bhavan]].<ref name >http://www.parliamentmuseum.org/indextry.html/</ref> It was inaugurated by then [[Speaker of Lok Sabha]] on 29 December 1989, in Parliament House Annexe, subsequently it shifted to its present in a Special Hall of the Sansadiya Gyanpeeth, Parliament Library Building, where it was inaugurated on 7 May 2002 by President of India, [[K. R. Narayanan]].<ref>{{cite web |title=Parliamentary Museum And Archives |url= http://www.parliamentofindia.nic.in/ls/intro/p12.htm|date= |publisher=[[Parliament of India]] }}</ref> The interactive museum was inaugurated by President A.P.J. Abdul Kalam on Aug 15 2006.<ref>{{cite news |title=Past meets present in Parliament |url=http://www.indianexpress.com/news/past-meets-present-in-parliament/10630/ |publisher=[[Indian Express]] |date=Aug 15, 2006 }}</ref>" .
+l:566188831 s:type s:monument .
+l:566188831 s:name "Jantar Mantar" .
+l:566188831 s:latitude "28.6280008" .
+l:566188831 s:longitude "77.2165121" .
+l:566188831 s:description "[[File:Jantar Mantar at Jaipur.jpg|thumb|220px|[[Jantar Mantar (Jaipur)|Jantar Mantar]] in [[Jaipur]], India.]][[File:Jantar Mantar Delhi 27-05-2005.jpg|thumb|220px|[[Jantar Mantar (Delhi)|Jantar Mantar]] in [[New Delhi]], India.]]" .
+l:2323525222 s:type s:monument .
+l:2323525222 s:name "Jai Praksh Yantra" .
+l:2323525222 s:latitude "28.6267581" .
+l:2323525222 s:longitude "77.2164438" .
+l:2323525223 s:type s:monument .
+l:2323525223 s:name "Misra Yantra" .
+l:2323525223 s:latitude "28.6263014" .
+l:2323525223 s:longitude "77.2164405" .
+l:2323525223 s:description "'''Misra Yantra''' is one of the four distinct [[Astronomy|astronomical]] [[Scientific instrument|instrument]]s of the [[Jantar Mantar (Delhi)|Jantar Mantar]] [[observatory]] located in [[New Delhi, India]].<ref>{{cite journal |last=Sharma |first=Virendra Nath |year=1994 |title=Mísra Yantra of the Delhi observatory |journal=Indian Journal of History of Science |volume=29 |issue=3 |pages=477–487 |issn=0019-5235 }}</ref> Each instrument at the Jantar Mantar are separate brilliant architectures constructed based on mathematical observations, and help in calculating different aspects of celestial objects and time. It is widely believed that the Jantar Mantar was constructed in the year 1724. The four instruments of Jantar Mantar are '''Samrat Yantra''' (a large [[sundial]] for calculating time), '''Jay Prakash Yantra''' (2 [[Lens (optics)#Types of simple lenses|concave]] [[hemispherical]] structures, used to ascertain the position of Sun and other heavenly bodies), '''Ram Yantra''' (two large [[cylindrical]] structures with open top, used to measure the altitude of stars based on the [[latitude]] and the [[longitude]] on the earth) and the '''Misra Yantra''' (meaning ''mixed instrument'', since it is a compilation of five different instruments)." .
+l:2323525224 s:type s:monument .
+l:2323525224 s:name "Misra Yantra" .
+l:2323525224 s:latitude "28.6267524" .
+l:2323525224 s:longitude "77.2166346" .
+l:2323525224 s:description "'''Misra Yantra''' is one of the four distinct [[Astronomy|astronomical]] [[Scientific instrument|instrument]]s of the [[Jantar Mantar (Delhi)|Jantar Mantar]] [[observatory]] located in [[New Delhi, India]].<ref>{{cite journal |last=Sharma |first=Virendra Nath |year=1994 |title=Mísra Yantra of the Delhi observatory |journal=Indian Journal of History of Science |volume=29 |issue=3 |pages=477–487 |issn=0019-5235 }}</ref> Each instrument at the Jantar Mantar are separate brilliant architectures constructed based on mathematical observations, and help in calculating different aspects of celestial objects and time. It is widely believed that the Jantar Mantar was constructed in the year 1724. The four instruments of Jantar Mantar are '''Samrat Yantra''' (a large [[sundial]] for calculating time), '''Jay Prakash Yantra''' (2 [[Lens (optics)#Types of simple lenses|concave]] [[hemispherical]] structures, used to ascertain the position of Sun and other heavenly bodies), '''Ram Yantra''' (two large [[cylindrical]] structures with open top, used to measure the altitude of stars based on the [[latitude]] and the [[longitude]] on the earth) and the '''Misra Yantra''' (meaning ''mixed instrument'', since it is a compilation of five different instruments)." .
+l:2323525225 s:type s:monument .
+l:2323525225 s:name "Misra Yantra" .
+l:2323525225 s:latitude "28.6275785" .
+l:2323525225 s:longitude "77.2163067" .
+l:2323525225 s:description "'''Misra Yantra''' is one of the four distinct [[Astronomy|astronomical]] [[Scientific instrument|instrument]]s of the [[Jantar Mantar (Delhi)|Jantar Mantar]] [[observatory]] located in [[New Delhi, India]].<ref>{{cite journal |last=Sharma |first=Virendra Nath |year=1994 |title=Mísra Yantra of the Delhi observatory |journal=Indian Journal of History of Science |volume=29 |issue=3 |pages=477–487 |issn=0019-5235 }}</ref> Each instrument at the Jantar Mantar are separate brilliant architectures constructed based on mathematical observations, and help in calculating different aspects of celestial objects and time. It is widely believed that the Jantar Mantar was constructed in the year 1724. The four instruments of Jantar Mantar are '''Samrat Yantra''' (a large [[sundial]] for calculating time), '''Jay Prakash Yantra''' (2 [[Lens (optics)#Types of simple lenses|concave]] [[hemispherical]] structures, used to ascertain the position of Sun and other heavenly bodies), '''Ram Yantra''' (two large [[cylindrical]] structures with open top, used to measure the altitude of stars based on the [[latitude]] and the [[longitude]] on the earth) and the '''Misra Yantra''' (meaning ''mixed instrument'', since it is a compilation of five different instruments)." .
+l:2323525226 s:type s:monument .
+l:2323525226 s:name "Ram Yantra" .
+l:2323525226 s:latitude "28.6265376" .
+l:2323525226 s:longitude "77.216465" .
+l:2323525227 s:type s:monument .
+l:2323525227 s:name "Shasthamasa Yantra" .
+l:2323525227 s:latitude "28.6270488" .
+l:2323525227 s:longitude "77.2167471" .
+l:266809614 s:nearby l:561254917 .
+l:266809614 s:nearby l:566188831 .
+l:266809614 s:nearby l:2323525222 .
+l:266809614 s:nearby l:2323525223 .
+l:266809614 s:nearby l:2323525224 .
+l:266809614 s:nearby l:2323525225 .
+l:266809614 s:nearby l:2323525226 .
+l:266809614 s:nearby l:2323525227 .
+l:561254917 s:nearby l:266809614 .
+l:561254917 s:nearby l:566188831 .
+l:561254917 s:nearby l:2323525222 .
+l:561254917 s:nearby l:2323525223 .
+l:561254917 s:nearby l:2323525224 .
+l:561254917 s:nearby l:2323525225 .
+l:561254917 s:nearby l:2323525226 .
+l:561254917 s:nearby l:2323525227 .
+l:566188831 s:nearby l:266809614 .
+l:566188831 s:nearby l:561254917 .
+l:566188831 s:nearby l:2323525222 .
+l:566188831 s:nearby l:2323525223 .
+l:566188831 s:nearby l:2323525224 .
+l:566188831 s:nearby l:2323525225 .
+l:566188831 s:nearby l:2323525226 .
+l:566188831 s:nearby l:2323525227 .
+l:2323525222 s:nearby l:266809614 .
+l:2323525222 s:nearby l:561254917 .
+l:2323525222 s:nearby l:566188831 .
+l:2323525222 s:nearby l:2323525223 .
+l:2323525222 s:nearby l:2323525224 .
+l:2323525222 s:nearby l:2323525225 .
+l:2323525222 s:nearby l:2323525226 .
+l:2323525222 s:nearby l:2323525227 .
+l:2323525223 s:nearby l:266809614 .
+l:2323525223 s:nearby l:561254917 .
+l:2323525223 s:nearby l:566188831 .
+l:2323525223 s:nearby l:2323525222 .
+l:2323525223 s:nearby l:2323525224 .
+l:2323525223 s:nearby l:2323525225 .
+l:2323525223 s:nearby l:2323525226 .
+l:2323525223 s:nearby l:2323525227 .
+l:2323525224 s:nearby l:266809614 .
+l:2323525224 s:nearby l:561254917 .
+l:2323525224 s:nearby l:566188831 .
+l:2323525224 s:nearby l:2323525222 .
+l:2323525224 s:nearby l:2323525223 .
+l:2323525224 s:nearby l:2323525225 .
+l:2323525224 s:nearby l:2323525226 .
+l:2323525224 s:nearby l:2323525227 .
+l:2323525225 s:nearby l:266809614 .
+l:2323525225 s:nearby l:561254917 .
+l:2323525225 s:nearby l:566188831 .
+l:2323525225 s:nearby l:2323525222 .
+l:2323525225 s:nearby l:2323525223 .
+l:2323525225 s:nearby l:2323525224 .
+l:2323525225 s:nearby l:2323525226 .
+l:2323525225 s:nearby l:2323525227 .
+l:2323525226 s:nearby l:266809614 .
+l:2323525226 s:nearby l:561254917 .
+l:2323525226 s:nearby l:566188831 .
+l:2323525226 s:nearby l:2323525222 .
+l:2323525226 s:nearby l:2323525223 .
+l:2323525226 s:nearby l:2323525224 .
+l:2323525226 s:nearby l:2323525225 .
+l:2323525226 s:nearby l:2323525227 .
+l:2323525227 s:nearby l:266809614 .
+l:2323525227 s:nearby l:561254917 .
+l:2323525227 s:nearby l:566188831 .
+l:2323525227 s:nearby l:2323525222 .
+l:2323525227 s:nearby l:2323525223 .
+l:2323525227 s:nearby l:2323525224 .
+l:2323525227 s:nearby l:2323525225 .
+l:2323525227 s:nearby l:2323525226 .
+l:2416119458 s:type s:museum .
+l:2416119458 s:name "Crafts Museum" .
+l:2416119458 s:latitude "28.6132826" .
+l:2416119458 s:longitude "77.2421721" .
+l:2945859685 s:type s:memorial .
+l:2945859685 s:name "Amar Jawan Jyoti" .
+l:2945859685 s:latitude "28.6128732" .
+l:2945859685 s:longitude "77.2295494" .
+l:2945859685 s:description "#Redirect[[India Gate#Amar Jawan Jyoti]]" .
+l:2962182563 s:type s:museum .
+l:2962182563 s:name "null" .
+l:2962182563 s:latitude "28.632809" .
+l:2962182563 s:longitude "77.2381373" .
+l:3424258726 s:type s:museum .
+l:3424258726 s:name "National Science Centre " .
+l:3424258726 s:latitude "28.6129633" .
+l:3424258726 s:longitude "77.2445016" .
+l:2416119458 s:nearby l:2945859685 .
+l:2416119458 s:nearby l:2962182563 .
+l:2416119458 s:nearby l:3424258726 .
+l:2945859685 s:nearby l:2416119458 .
+l:2945859685 s:nearby l:2962182563 .
+l:2945859685 s:nearby l:3424258726 .
+l:2962182563 s:nearby l:2416119458 .
+l:2962182563 s:nearby l:2945859685 .
+l:2962182563 s:nearby l:3424258726 .
+l:3424258726 s:nearby l:2416119458 .
+l:3424258726 s:nearby l:2945859685 .
+l:3424258726 s:nearby l:2962182563 .

@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Fira Sans';
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  background-color: #D2DCE2;
+}
+
+.row {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.main-header {
+  background-color: white;
+  flex: 0 0 auto;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.main-header img {
+  margin-left: auto;
+  height: 100%;
+}
+
+.main-header h2 {
+  font-size: 3em;
+  padding-right: 1em;
+}
+
+.main-header .description {
+  height: 100%;
+  width: 15em;
+  text-align: left;
+  margin-right: auto;
+}
+
+.main-footer {
+  background-color: #BFC1C2;
+  font-size: 0.6em;
+  flex: 0 0 auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.content {
+  padding-top: 1em;
+  flex: 1 1 auto;
+  min-width: 400px;
+}
+
+.content h1 {
+  color: #E7732E;
+}
