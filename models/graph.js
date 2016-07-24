@@ -5,28 +5,64 @@ const http = require('choo/http')
 module.exports = {
   namespace: 'graph',
   state: {
-    monuments: []
+    monuments: [],
+    selected: [],
+    last: null
   },
   reducers: {
+    select: (data, state) => {
+      state.selected.push(data)
+      return {
+        monuments: state.monuments,
+        selected: state.selected,
+        last: data
+      }
+    },
     monumentsFromGraph: (data, state) => {
       data.forEach((monument) => {
         monument.name = monument.name.replace(/"/g, '')
+        monument.id = monument.id.replace('http://vldb2016.persistent.com/locations#', '')
       })
+
       return {
-        monuments: data
+        monuments: data,
+        selected: state.selected,
+        last: state.last
       }
     }
   },
   effects: {
     fetchMonuments: (data, state, send, done) => {
-      http('/monuments', { json: true }, function (err, res, body) {
+      var url = '/monuments'
+      if (data && data.id) {
+        url += `/${data.id}/nearby`
+      }
+
+      http(url, { json: true }, function (err, res, body) {
         if (err) {
           return done(err)
         }
 
-        console.log('received', body)
-
         send('graph:monumentsFromGraph', body, done)
+      })
+    },
+    selectWithDetails: (data, state, send, done) => {
+      var url = `/monuments/${data.id}`
+
+      http(url, { json: true }, function (err, res, body) {
+        if (err) {
+          return done(err)
+        }
+
+        const monument = body.reduce((obj, triple) => {
+          const property = triple.predicate.replace('http://vldb2016.persistent.com/schema#','')
+          obj[property] = triple.object.replace(/^"/, '').replace(/"$/, '')
+          return obj
+        }, {})
+
+        monument.id = data.id
+
+        send('graph:select', monument, done)
       })
     }
   }

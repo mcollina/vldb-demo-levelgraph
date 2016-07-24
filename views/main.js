@@ -2,6 +2,7 @@
 
 const html = require('choo/html')
 const header = require('./header')
+const plan = require('./plan')
 const footer = require('./footer')
 
 module.exports = function (state, prev, send) {
@@ -19,25 +20,12 @@ module.exports = function (state, prev, send) {
     `
   }
 
-  const monuments = graph.monuments || []
-
   return html`
     <div class="row">
       <main class="content">
         <h1>Trip planning in New Delhi</h1>
-          Select your first stop:
-          <form>
-            <select name="source">
-              ${monuments.map(monument)}
-            </select>
-          </form>
+        ${plan(state, prev, send)}
       </main>
     </div>
-  `
-}
-
-function monument (monument) {
-  return html`
-    <option value="${monument.id}">${monument.name}</option>
   `
 }

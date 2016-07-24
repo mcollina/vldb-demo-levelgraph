@@ -50,6 +50,44 @@ function createRouter () {
     })
   })
 
+  router.on('/monuments/:id', (req, res, params) => {
+    graph.get({
+      subject: 'http://vldb2016.persistent.com/locations#' + params.id
+    }, (err, results) => {
+      if (err) {
+        res.statusCode = 500
+        res.end(err.message)
+        return
+      }
+
+      res.setHeader('content-type', 'application/json')
+
+      results = results.filter((triple) => triple.predicate.indexOf('nearby') === -1)
+      res.end(JSON.stringify(results))
+    })
+  })
+
+  router.on('/monuments/:id/nearby', (req, res, params) => {
+    graph.search([{
+      subject: 'http://vldb2016.persistent.com/locations#' + params.id,
+      predicate: 'http://vldb2016.persistent.com/schema#nearby',
+      object: graph.v('id')
+    }, {
+      subject: graph.v('id'),
+      predicate: 'http://vldb2016.persistent.com/schema#name',
+      object: graph.v('name')
+    }], {}, (err, results) => {
+      if (err) {
+        res.statusCode = 500
+        res.end(err.message)
+        return
+      }
+
+      res.setHeader('content-type', 'application/json')
+      res.end(JSON.stringify(results))
+    })
+  })
+
   router.on('/FILES', (req, res) => {
     files(req, res, (err) => {
       if (err) {
