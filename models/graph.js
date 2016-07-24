@@ -18,6 +18,14 @@ module.exports = {
         last: data
       }
     },
+    pop: (data, state) => {
+      state.selected.pop()
+      return {
+        monuments: state.monuments,
+        selected: state.selected,
+        last: state.selected.last
+      }
+    },
     monumentsFromGraph: (data, state) => {
       data.forEach((monument) => {
         monument.name = monument.name.replace(/"/g, '')
@@ -62,7 +70,22 @@ module.exports = {
 
         monument.id = data.id
 
-        send('graph:select', monument, done)
+        send('graph:select', monument, (err) => {
+          if (err) {
+            return done(err)
+          }
+
+          send('graph:fetchMonuments', monument, done)
+        })
+      })
+    },
+    popAndFetch: (data, state, send, done) => {
+      send('graph:pop', function (err) {
+        if (err) {
+          return done(err)
+        }
+
+        send('graph:fetchMonuments', state.selected[state.selected.length - 2], done)
       })
     }
   }

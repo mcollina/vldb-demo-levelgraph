@@ -68,10 +68,11 @@ function createRouter () {
   })
 
   router.on('/monuments/:id/nearby', (req, res, params) => {
+    const origin = 'http://vldb2016.persistent.com/locations#' + params.id
     graph.search([{
-      subject: 'http://vldb2016.persistent.com/locations#' + params.id,
+      subject: origin,
       predicate: 'http://vldb2016.persistent.com/schema#nearby',
-      object: graph.v('id')
+      object: graph.v('id'),
     }, {
       subject: graph.v('id'),
       predicate: 'http://vldb2016.persistent.com/schema#name',

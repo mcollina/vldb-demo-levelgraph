@@ -3,6 +3,7 @@
 const html = require('choo/html')
 const header = require('./header')
 const plan = require('./plan')
+const steps = require('./steps')
 const footer = require('./footer')
 
 module.exports = function (state, prev, send) {
@@ -24,6 +25,7 @@ module.exports = function (state, prev, send) {
     <div class="row">
       <main class="content">
         <h1>Trip planning in New Delhi</h1>
+        ${steps(state, prev, send)}
         ${plan(state, prev, send)}
       </main>
     </div>
