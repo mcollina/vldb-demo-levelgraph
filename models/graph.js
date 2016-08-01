@@ -46,6 +46,8 @@ module.exports = {
         url += `/${data.id}/nearby`
       }
 
+      console.log('fetchMonuments', url)
+
       http(url, { json: true }, function (err, res, body) {
         if (err) {
           return done(err)
@@ -63,7 +65,7 @@ module.exports = {
         }
 
         const monument = body.reduce((obj, triple) => {
-          const property = triple.predicate.replace('http://vldb2016.persistent.com/schema#','')
+          const property = triple.predicate.replace(/^.*(#|\/)/,'')
           obj[property] = triple.object.replace(/^"/, '').replace(/"$/, '')
           return obj
         }, {})

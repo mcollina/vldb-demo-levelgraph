@@ -12,7 +12,7 @@ pump(fs.createReadStream('./all_tripleList.n3'), graph.n3.putStream(), (err) => 
   if (err) { throw err }
 
 
-  query1(noop)
+  queryMonuments(noop)
 })
 
 function all (next) {
@@ -59,6 +59,37 @@ function queryNear (next) {
     predicate: 'name',
     object: graph.v('z')
   }], {}, (err, results) => {
+    if (err) { throw err }
+    console.log(results)
+    next()
+  })
+}
+
+function queryMonuments (next) {
+  graph.search([{
+    subject: graph.v('id'),
+    predicate: 'http://schema.org/name',
+    object: graph.v('name'),
+  }, {
+    subject: graph.v('id'),
+    predicate: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+    object: graph.v('type')
+  }, {
+    subject: graph.v('type'),
+    predicate: 'http://www.w3.org/2000/01/rdf-schema#subClassOf',
+    object: 'http://schema.org/TouristAttraction',
+  }], {}, (err, results) => {
+    if (err) { throw err }
+    console.log(results)
+    next()
+  })
+}
+
+function queryTypes (next) {
+  graph.get({
+    predicate: 'http://www.w3.org/2000/01/rdf-schema#subClassOf',
+    //predicate: 'http://schema.org/TouristAttraction',
+  }, (err, results) => {
     if (err) { throw err }
     console.log(results)
     next()
