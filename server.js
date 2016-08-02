@@ -10,7 +10,7 @@ const browserify = require('browserify')
 const bankai = require('bankai')
 const serveStatic = require('serve-static')
 
-const memdb = require('memdb')
+const db = require('level')('./db')
 const levelgraph = require('levelgraph')
 const levelgraphN3 = require('levelgraph-n3')
 
@@ -18,7 +18,7 @@ const PORT = 3000
 const router = createRouter()
 const server = http.createServer(handle)
 
-const graph = levelgraphN3(levelgraph(memdb()))
+const graph = levelgraphN3(levelgraph(db))
 
 const queries = require('./lib/queries')(graph)
 
@@ -30,6 +30,9 @@ function createRouter () {
 
   const js = bankai.js(browserify, require.resolve('./client.js'))
   router.on('/bundle.js', (req, res) => js(req, res).pipe(res))
+
+  const js2 = bankai.js(browserify, require.resolve('./client-indexeddb.js'), { transform: 'brfs' })
+  router.on('/bundle-indexeddb.js', (req, res) => js2(req, res).pipe(res))
 
   router.on('/monuments', (req, res) => {
     queries.monuments((err, results) => {
