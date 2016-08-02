@@ -20,6 +20,8 @@ const server = http.createServer(handle)
 
 const graph = levelgraphN3(levelgraph(memdb()))
 
+const queries = require('./lib/queries')(graph)
+
 pump(fs.createReadStream('./all_tripleList.n3'), graph.n3.putStream())
 
 function createRouter () {
@@ -30,19 +32,7 @@ function createRouter () {
   router.on('/bundle.js', (req, res) => js(req, res).pipe(res))
 
   router.on('/monuments', (req, res) => {
-    graph.search([{
-      subject: graph.v('id'),
-      predicate: 'http://schema.org/name',
-      object: graph.v('name'),
-    }, {
-      subject: graph.v('id'),
-      predicate: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
-      object: graph.v('type')
-    }, {
-      subject: graph.v('type'),
-      predicate: 'http://www.w3.org/2000/01/rdf-schema#subClassOf',
-      object: 'http://schema.org/TouristAttraction',
-    }], {}, (err, results) => {
+    queries.monuments((err, results) => {
       if (err) {
         res.statusCode = 500
         res.end(err.message)
@@ -55,65 +45,20 @@ function createRouter () {
   })
 
   router.on('/monuments/:id', (req, res, params) => {
-    graph.get({
-      subject: 'http://vldb2016.persistent.com/locations#' + params.id
-    }, {}, (err, results) => {
+    queries.details(params.id, (err, results) => {
       if (err) {
         res.statusCode = 500
         res.end(err.message)
         return
       }
 
-      var address;
-
-      for (var i = 0; i < results.length; i++) {
-        if (results[i].predicate === 'http://www.w3.org/ns/locn#address') {
-          address = results[i].object
-        }
-      }
-
-      if (!address) {
-        reply(results)
-        return
-      }
-
-      graph.search([{
-        subject: address,
-        predicate: 'http://www.w3.org/ns/locn#geometry',
-        object: graph.v('blank')
-      }, {
-        subject: graph.v('blank'),
-        predicate: graph.v('predicate'),
-        object: graph.v('object')
-      }], {}, (err, results2) => {
-        if (err) {
-          res.statusCode = 500
-          res.end(err.message)
-          return
-        }
-
-        reply(results.concat(results2))
-      })
-    })
-
-    function reply (results) {
       res.setHeader('content-type', 'application/json')
-      results = results.filter((triple) => triple.predicate.indexOf('nearby') === -1)
       res.end(JSON.stringify(results))
-    }
+    })
   })
 
   router.on('/monuments/:id/nearby', (req, res, params) => {
-    const origin = 'http://vldb2016.persistent.com/locations#' + params.id
-    graph.search([{
-      subject: origin,
-      predicate: 'http://www.geonames.org/ontology#nearby',
-      object: graph.v('id'),
-    }, {
-      subject: graph.v('id'),
-      predicate: 'http://schema.org/name',
-      object: graph.v('name')
-    }], {}, (err, results) => {
+    queries.nearby(params.id, (err, results) => {
       if (err) {
         res.statusCode = 500
         res.end(err.message)
