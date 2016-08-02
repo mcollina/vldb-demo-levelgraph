@@ -22,7 +22,7 @@ const app = choo({
   }
 })
 
-app.model(require('./models/graph'))
+app.model(require('./models/plan'))
 
 app.router((route) => [
   route('/', mainView)

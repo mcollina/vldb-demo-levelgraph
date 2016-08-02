@@ -3,13 +3,13 @@
 const html = require('choo/html')
 
 module.exports = function (state, prev, send) {
-  const graph = state.graph
+  const plan = state.plan
 
-  const monuments = graph.monuments || []
+  const monuments = plan.monuments || []
 
   return html`
     <div class="select-stop">
-      Select your ${ state.graph.last ? "next" : "first" } stop:
+      Select your ${ state.plan.last ? "next" : "first" } stop:
       <form>
         <select>
           ${monuments.map(monument)}
@@ -31,7 +31,7 @@ module.exports = function (state, prev, send) {
         }
       }
     }
-    send('graph:selectWithDetails', selected)
+    send('plan:selectWithDetails', selected)
     return false
   }
 }

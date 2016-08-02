@@ -7,12 +7,10 @@ const steps = require('./steps')
 const footer = require('./footer')
 
 module.exports = function (state, prev, send) {
-  const graph = state.graph
-
   // fetch the monuments'
-  if (state.graph.monuments.length === 0) {
+  if (state.plan.monuments.length === 0) {
     console.log('FETCHING monuments')
-    send('graph:fetchMonuments')
+    send('plan:fetchMonuments')
     return html`
       <div class="row">
         <main class="content">

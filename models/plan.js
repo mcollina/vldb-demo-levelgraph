@@ -1,9 +1,9 @@
 'use strict'
 
-const http = require('choo/http')
+const queries = require('./httpQueries')
 
 module.exports = {
-  namespace: 'graph',
+  namespace: 'plan',
   state: {
     monuments: [],
     selected: [],
@@ -26,7 +26,7 @@ module.exports = {
         last: state.selected.last
       }
     },
-    monumentsFromGraph: (data, state) => {
+    monumentsFromplan: (data, state) => {
       data.forEach((monument) => {
         monument.name = monument.name.replace(/"/g, '')
         monument.id = monument.id.replace('http://vldb2016.persistent.com/locations#', '')
@@ -41,25 +41,22 @@ module.exports = {
   },
   effects: {
     fetchMonuments: (data, state, send, done) => {
-      var url = '/monuments'
       if (data && data.id) {
-        url += `/${data.id}/nearby`
+        queries.nearby(data.id, result)
+      } else {
+        queries.monuments(result)
       }
 
-      console.log('fetchMonuments', url)
-
-      http(url, { json: true }, function (err, res, body) {
+      function result (err, body) {
         if (err) {
           return done(err)
         }
 
-        send('graph:monumentsFromGraph', body, done)
-      })
+        send('plan:monumentsFromplan', body, done)
+      }
     },
     selectWithDetails: (data, state, send, done) => {
-      var url = `/monuments/${data.id}`
-
-      http(url, { json: true }, function (err, res, body) {
+      queries.details(data.id, (err, body) => {
         if (err) {
           return done(err)
         }
@@ -72,22 +69,22 @@ module.exports = {
 
         monument.id = data.id
 
-        send('graph:select', monument, (err) => {
+        send('plan:select', monument, (err) => {
           if (err) {
             return done(err)
           }
 
-          send('graph:fetchMonuments', monument, done)
+          send('plan:fetchMonuments', monument, done)
         })
       })
     },
     popAndFetch: (data, state, send, done) => {
-      send('graph:pop', function (err) {
+      send('plan:pop', function (err) {
         if (err) {
           return done(err)
         }
 
-        send('graph:fetchMonuments', state.selected[state.selected.length - 2], done)
+        send('plan:fetchMonuments', state.selected[state.selected.length - 2], done)
       })
     }
   }

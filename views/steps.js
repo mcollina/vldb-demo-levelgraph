@@ -3,10 +3,10 @@
 const html = require('choo/html')
 
 module.exports = function (state, prev, send) {
-  const graph = state.graph
+  const plan = state.plan
 
-  const selected = graph.selected
-  const last = graph.last
+  const selected = plan.selected
+  const last = plan.last
 
   return html`
     <div class="monuments">
@@ -39,6 +39,6 @@ function remove (monument, send) {
   `
 
   function pop () {
-    send('graph:popAndFetch')
+    send('plan:popAndFetch')
   }
 }
