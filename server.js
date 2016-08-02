@@ -22,7 +22,19 @@ const graph = levelgraphN3(levelgraph(db))
 
 const queries = require('./lib/queries')(graph)
 
-pump(fs.createReadStream('./all_tripleList.n3'), graph.n3.putStream())
+fs.readFile('./all_tripleList.n3', function (err, data) {
+  if (err) {
+    throw err
+  }
+
+  graph.n3.put(data, function (err) {
+    if (err) {
+      throw err
+    }
+
+    logger.logger.info('data imported')
+  })
+})
 
 function createRouter () {
   const files = serveStatic(p.join(__dirname, 'static'))
