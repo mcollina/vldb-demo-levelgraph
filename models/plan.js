@@ -31,6 +31,16 @@ module.exports = function build (queries) {
           monument.id = monument.id.replace('http://vldb2016.persistent.com/locations#', '')
         })
 
+        data.sort((a, b) => {
+          if (a.name > b.name) {
+            return 1
+          } else if (a.name < b.name) {
+            return -1
+          } else {
+            return 0
+          }
+        })
+
         return {
           monuments: data,
           selected: state.selected,

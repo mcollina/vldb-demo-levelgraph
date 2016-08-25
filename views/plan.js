@@ -7,9 +7,17 @@ module.exports = function (state, prev, send) {
 
   const monuments = plan.monuments || []
 
+  let phrase
+
+  if (!state.plan.last) {
+    phrase = 'Select your first stop'
+  } else {
+    phrase = 'Select nearby attractions'
+  }
+
   return html`
     <div class="select-stop">
-      Select your ${ state.plan.last ? "next" : "first" } stop:
+      ${phrase}:
       <form>
         <select>
           ${monuments.map(monument)}
@@ -38,6 +46,6 @@ module.exports = function (state, prev, send) {
 
 function monument (monument) {
   return html`
-    <option value="${monument.id}">${monument.name}</option>
+    <option value="${monument.id}">${monument.name || '..' }</option>
   `
 }
