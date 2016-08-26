@@ -1128,7 +1128,7 @@ i:_bng_2945859685 rdf:type locn:Geometry .
 i:_bng_2945859685 locn:latitude "28.6128732" .
 i:_bng_2945859685 locn:longitude "77.2295494" .
 i:2945859685 dcterms:description "#Redirect[[India Gate#Amar Jawan Jyoti]]" .
-i:2962182563 sc:name "null" .
+i:2962182563 sc:name "bal bhawan mandi house" .
 i:2962182563 rdf:type s:Museum .
 i:2962182563 locn:address i:_bna_2962182563 .
 i:_bna_2962182563 rdf:type locn:Address .
@@ -1136,6 +1136,7 @@ i:_bna_2962182563 locn:geometry i:_bng_2962182563 .
 i:_bng_2962182563 rdf:type locn:Geometry .
 i:_bng_2962182563 locn:latitude "28.632809" .
 i:_bng_2962182563 locn:longitude "77.2381373" .
+i:2962182563 dcterms:description "National Bal Bhavan is an institution which aims at enhancing the creative potential of children by providing them various activities, opportunities and common platform to interact, experiment, create and perform according to their age, aptitude and ability. It offers a barrier-free environment with immense possibilities of innovation, minus any stress or strain" .
 i:3424218861 sc:name "Sher Shah Suri Gate" .
 i:3424218861 rdf:type s:Monument .
 i:3424218861 locn:address i:_bna_3424218861 .
