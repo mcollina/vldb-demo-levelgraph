@@ -4,6 +4,7 @@
 const html = require('choo/html')
 const getSelected = require('./getSelected')
 const routesCount = require('./routes-count')
+const routesList = require('./routes-list')
 
 module.exports = function (state, prev, send) {
   if (state.routes.monuments.length === 0) {
@@ -16,9 +17,11 @@ module.exports = function (state, prev, send) {
 
   const monuments = state.routes.monuments
   var count = ''
+  var list = ''
 
-  if (state.routes.count > 0) {
+  if (state.routes.count >= 0) {
     count = routesCount(state, prev, send)
+    list = routesList(state, prev, send)
   }
 
   return html`
@@ -49,6 +52,7 @@ module.exports = function (state, prev, send) {
         </div>
         <br>
         ${count}
+        ${list}
       </main>
     </div>
   `

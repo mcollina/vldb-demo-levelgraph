@@ -5,7 +5,7 @@ module.exports = function build (queries) {
     namespace: 'routes',
     state: {
       monuments: [],
-      count: 0
+      count: -1
     },
     reducers: {
       monumentsFromplan: (data, state) => {

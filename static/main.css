@@ -90,3 +90,21 @@ button {
   color: black;
   text-decoration: none;
 }
+
+.routes-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.path {
+  background-color: white;
+  width: 10em;
+  margin: 0.5em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.path ul {
+  margin: 0.5em;
+}
