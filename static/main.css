@@ -84,3 +84,9 @@ button {
   border: 1px;
   border-radius: 0.5em;
 }
+
+.disabled {
+  /*Disabled link style*/
+  color: black;
+  text-decoration: none;
+}

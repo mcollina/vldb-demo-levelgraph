@@ -5,29 +5,32 @@ const planning = require('./planning')
 const routes = require('./routes')
 
 module.exports = function (state, prev, send) {
-  const toRender = state.main.mode === 'planning' ?
+  const mode = state.main.mode
+  const toRender = mode === 'planning' ?
     planning(state, prev, send) :
     routes(state, prev, send)
 
   return html`
-    <div>
-      <div class="row">
-        <a href="#" onclick=${toPlanning}>Planning</a>
-        <a href="#" onclick=${toRoutes}>Possible Routes</a>
+    <div class="row">
+      <div>
+        <a href="#" onclick=${toPlanning} class=${mode !== 'planning' ? '' : 'disabled' }>Planning</a>
+        <a href="#" onclick=${toRoutes} class=${mode !== 'routes' ? '' : 'disabled' }>Possible Routes</a>
       </div>
-      <div class="row">
-        ${toRender}
-      </div>
+      ${toRender}
     </div>
   `
 
-  function toPlanning() {
+  function toPlanning () {
     send('main:toPlanning')
     return false
   }
 
-  function toRoutes() {
+  function toRoutes () {
     send('main:toRoutes')
     return false
   }
+}
+
+function noop () {
+  return false
 }
