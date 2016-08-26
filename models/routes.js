@@ -5,8 +5,6 @@ module.exports = function build (queries) {
     namespace: 'routes',
     state: {
       monuments: [],
-      steps: 3,
-      routes: null,
       count: 0
     },
     reducers: {
@@ -32,13 +30,25 @@ module.exports = function build (queries) {
       },
       update: (data, state) => {
         state.count += data.list.length
+
+        data.list.forEach((path) => {
+          const id = path.reduce((acc, step) => {
+            step.id = step.id.replace('http://vldb2016.persistent.com/locations#', '')
+            return acc ^ step.id
+          }, 0)
+
+          if (!state.routes.has(id)) {
+            state.routes.set(id, path)
+          }
+        })
+
         return state
       },
       reset: (data, state) => {
         return {
           monuments: state.monuments,
           steps: state.steps,
-          routes: null,
+          routes: new Map(),
           count: 0
         }
       }
@@ -62,8 +72,7 @@ module.exports = function build (queries) {
         stream.on('end', done)
         stream.on('error', done)
 
-
-        send('routes:reset', update)
+        send('routes:reset', {}, update)
 
         function read () {
           var chunk
