@@ -22,29 +22,35 @@ module.exports = function (state, prev, send) {
   }
 
   return html`
-    <main class="content">
-      <div class="select-stop">
-        <form>
-          Select the starting point:
-          <select id="startIdSelector">
-            ${monuments.map(monument)}
-          </select>
-          Select the number of steps:
-          <select id="stepsSelector">
-            ${numStep(state.routes, 1)}
-            ${numStep(state.routes, 2)}
-            ${numStep(state.routes, 3)}
-          </select>
-          Select the arriving point:
-          <select id="endIdSelector">
-            ${monuments.map(monument)}
-          </select>
-          <button onclick=${act}>Calculate</button>
-        </form>
+    <div class="row">
+      <div>
+        <a href="#planning">Planning</a>
+        <a href="#routes" class="disabled">Possible Routes</a>
       </div>
-      <hr>
-      ${results}
-    </main>
+      <main class="content">
+        <div class="select-stop">
+          <form>
+            Select the starting point:
+            <select id="startIdSelector">
+              ${monuments.map(monument)}
+            </select>
+            Select the number of steps:
+            <select id="stepsSelector">
+              ${numStep(state.routes, 1)}
+              ${numStep(state.routes, 2)}
+              ${numStep(state.routes, 3)}
+            </select>
+            Select the arriving point:
+            <select id="endIdSelector">
+              ${monuments.map(monument)}
+            </select>
+            <button onclick=${act}>Calculate</button>
+          </form>
+        </div>
+        <hr>
+        ${results}
+      </main>
+    </div>
   `
 
   function act () {
