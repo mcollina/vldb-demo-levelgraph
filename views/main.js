@@ -1,31 +1,33 @@
 'use strict'
 
 const html = require('choo/html')
-const header = require('./header')
-const plan = require('./plan')
-const steps = require('./steps')
-const footer = require('./footer')
+const planning = require('./planning')
+const routes = require('./routes')
 
 module.exports = function (state, prev, send) {
-  // fetch the monuments'
-  if (state.plan.monuments.length === 0) {
-    console.log('FETCHING monuments')
-    send('plan:fetchMonuments')
-    return html`
-      <div class="row">
-        <main class="content">
-        </main>
-      </div>
-    `
-  }
+  const toRender = state.main.mode === 'planning' ?
+    planning(state, prev, send) :
+    routes(state, prev, send)
 
   return html`
-    <div class="row">
-      <main class="content">
-        <h1>Trip planning in New Delhi</h1>
-        ${steps(state, prev, send)}
-        ${plan(state, prev, send)}
-      </main>
+    <div>
+      <div class="row">
+        <a href="#" onclick=${toPlanning}>Planning</a>
+        <a href="#" onclick=${toRoutes}>Possible Routes</a>
+      </div>
+      <div class="row">
+        ${toRender}
+      </div>
     </div>
   `
+
+  function toPlanning() {
+    send('main:toPlanning')
+    return false
+  }
+
+  function toRoutes() {
+    send('main:toRoutes')
+    return false
+  }
 }
