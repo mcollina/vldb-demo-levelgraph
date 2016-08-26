@@ -1,4 +1,5 @@
 'use strict'
 
 const start = require('./lib/startChoo')
-start(require('./models/plan')(require('./lib/httpQueries')))
+const httpQueries = require('./lib/httpQueries')
+start(require('./models/plan')(httpQueries), require('./models/routes')(httpQueries))

@@ -3,13 +3,7 @@
 const html = require('choo/html')
 
 module.exports = function (state, prev, send) {
-  send('location:setLocation', { location: '/planning' })
-
   return html`
-    <div></div>
+    <h2>There are ${state.routes.count} possible routes, ${state.routes.routes.size} unique ones</h2>
   `
-}
-
-function noop () {
-  return false
 }

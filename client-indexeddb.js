@@ -15,6 +15,6 @@ graph.n3.put(data, (err) => {
     throw err
   }
   console.log('data imported')
-  start(require('./models/plan')(queries))
+  start(require('./models/plan')(queries), require('./models/routes')(queries))
 })
 

@@ -9,6 +9,8 @@ const serverRouter = require('server-router')
 const browserify = require('browserify')
 const bankai = require('bankai')
 const serveStatic = require('serve-static')
+const qs = require('qs')
+const through = require('through2')
 
 const db = require('level')('./db')
 const levelgraph = require('levelgraph')
@@ -96,6 +98,15 @@ function createRouter () {
       res.statusCode = 404
       res.end('{ "message": "the server is confused" }')
     })
+  })
+
+  router.on('/plan', (req, res, params) => {
+    const query = qs.parse(req.url.slice(req.url.indexOf('?') + 1))
+    const stream = queries.steps(query)
+
+    res.setHeader('content-type', 'application/json')
+
+    pump(stream, through.obj(function (chunk, enc, cb) { cb(null, JSON.stringify(chunk) + '\n') }), res)
   })
 
   return router
