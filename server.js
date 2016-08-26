@@ -102,8 +102,7 @@ function createRouter () {
 
   router.on('/plan', (req, res, params) => {
     const query = qs.parse(req.url.slice(req.url.indexOf('?') + 1))
-    console.log(query)
-    const stream = queries.steps(query.start, query.steps, query.end)
+    const stream = queries.steps(query)
 
     res.setHeader('content-type', 'application/json')
 
