@@ -11,9 +11,11 @@ s:Memorial rdfs:subClassOf sc:TouristAttraction .
 s:Monument rdfs:subClassOf sc:TouristAttraction .
 s:Viewpoint rdfs:subClassOf sc:TouristAttraction .
 s:Ruins rdfs:subClassOf sc:TouristAttraction .
+s:EventVenue rdfs:subClassOf sc:TouristAttraction .
 <http://vldb2016.persistent.com/> rdf:type sc:BusinessEvent .
 <http://vldb2016.persistent.com/> sc:endDate "2016-09-09" .
 i:leela rdf:type sc:LocalBusiness .
+i:leela rdf:type s:EventVenue .
 i:leela sc:name "Leela Ambience Gurgaon Hotel & Residences" .
 i:leela locn:address i:_bna_leela .
 i:_bna_leela rdf:type locn:Address .
@@ -1257,3 +1259,69 @@ i:3379604520 gn:nearby i:2939969320 .
 i:3379604520 gn:nearby i:2940449157 .
 i:3379604520 gn:nearby i:2940449158 .
 i:3379604520 gn:nearby i:2940758785 .
+<http://vldb2016.persistent.com/> dcterms:description "VLDB is an annual conference held by the non-profit Very Large Data Base Endowment Inc. The mission of VLDB is to promote and exchange scholarly work in databases and related fields throughout the world. The VLDB conference began in 1975 and is now closely associated with SIGMOD and SIGKDD." .
+
+i:qutbMinar sc:name "Qutb Minar" .
+i:qutbMinar rdf:type s:Monument .
+i:qutbMinar locn:address i:_bna_qutbMinar .
+i:qutbMinar dcterms:description "Qutb Minar, (also spelled Qutub Minar) at 72 meters, is the tallest brick minaret in the world. Qutb Minar, along with the ancient and medieval monuments surrounding it, form the Qutb Complex, which is a UNESCO World Heritage Site.[2][3][3] The tower is located in the Mehrauli area of Delhi, India.The Minaret of Jam a UNESCO World Heritage Site in western Afghanistan is thought to have been a direct inspiration for the Qutb Minar in Delhi, which was also built by the Ghorid Dynasty. Made of red sandstone and marble, Qutb Minar is a 73-meter (240 feet) tall tapering tower with a diameter measuring 14.32 meters (47 feet) at the base and 2.75 meters (9 feet) at the peak.[4] Inside the tower, a circular staircase with 379 steps leads to the top. Qutb Minar station is the closest station on the Delhi Metro." .
+i:_bna_qutbMinar rdf:type locn:Address .
+i:_bna_qutbMinar locn:fullAddress "Seth Sarai, Mehrauli, New Delhi" .
+i:_bna_qutbMinar locn:geometry i:_bng_qutbMinar .
+i:_bng_qutbMinar rdf:type locn:Geometry .
+i:_bng_qutbMinar locn:latitude "28.524428" .
+i:_bng_qutbMinar locn:longitude "77.185493" .
+i:qutbMinar gn:nearby i:2654012009 .
+i:qutbMinar gn:nearby i:2654011967 .
+i:qutbMinar gn:nearby i:1486895412 .
+i:qutbMinar gn:nearby i:2945859685 .
+
+i:chaatarpur sc:name "Chaatarpur Temple" .
+i:chaatarpur rdf:type s:Monument .
+i:chaatarpur locn:address i:_bna_chaatarpur .
+i:chaatarpur dcterms:description "Chhatarpur Temple (Officially: Shri Aadya Katyayani Shakti Peetham) is located in a down town area in south of Delhi - Chhatarpur. This is the second largest temple complex in India, and is dedicated to Goddess, Katyayani. It is located at Chhatarpur,[1] on the southwestern outskirts of the city of Delhi and is just 4 km (2.5 mi) from Qutub Minar, off Mehrauli-Gurgaon road.[2][3]. The temple was established in 1974, by Baba Sant Nagpal ji, who died in 1998. His samadhi shrine lies in the premises of the Shiv-Gauri Nageshwar Mandir within the temple complex.[4]. This temple was considered as the biggest temple in India and second largest in the world, before the Akshardham Temple was created in 2005 in Delhi. This temple is totally constructed from marble and on all the facets there is jaali (perforated stone or latticed screen) work. It can be classified a vessara style of architecture." .
+i:_bna_chaatarpur rdf:type locn:Address .
+i:_bna_chaatarpur locn:fullAddress "Seth Sarai, Mehrauli, New Delhi" .
+i:_bna_chaatarpur locn:geometry i:_bng_chaatarpur .
+i:_bng_chaatarpur rdf:type locn:Geometry .
+i:_bng_chaatarpur locn:latitude "28.503049" .
+i:_bng_chaatarpur locn:longitude "77.177633" .
+i:chaatarpur gn:nearby i:leela .
+i:chaatarpur gn:nearby i:qutbMinar .
+
+i:redFort sc:name "Red Fort" .
+i:redFort rdf:type s:Monument .
+i:redFort locn:address i:_bna_redFort .
+i:redFort dcterms:description "The Red Fort was the residence of the Mughal emperor for nearly 200 years, until 1857. It is located in the centre of Delhi and houses a number of museums. In addition to accommodating the emperors and their households, it was the ceremonial and political centre of Mughal government and the setting for events critically impacting the region.[1]. Constructed in 1648 by the fifth Mughal Emperor Shah Jahan as the palace of his fortified capital Shahjahanabad,[2] the Red Fort is named for its massive enclosing walls of red sandstone and is adjacent to the older Salimgarh Fort, built by Islam Shah Suri in 1546. The imperial apartments consist of a row of pavilions, connected by a water channel known as the Stream of Paradise (Nahr-i-Behisht). The fort complex is considered to represent the zenith of Mughal creativity under Shah Jahan and although the palace was planned according to Islamic prototypes, each pavilion contains architectural elements typical of Mughal buildings that reflect a fusion of Timurid and Persian traditions. The Red Fort’s innovative architectural style, including its garden design, influenced later buildings and gardens in Delhi, Rajasthan, Punjab, Kashmir, Braj, Rohilkhand and elsewhere.[1] With the Salimgarh Fort, it was designated a UNESCO World Heritage Site in 2007 as part of the Red Fort Complex.[1][3]. On Independence Day (15 August), the Prime Minister of India hoists the 'tricolor' national flag at the main gate of the fort and delivers a nationally-broadcast speech from its ramparts." .
+i:_bna_redFort rdf:type locn:Address .
+i:_bna_redFort locn:geometry i:_bng_redFort .
+i:_bng_redFort rdf:type locn:Geometry .
+i:_bng_redFort locn:latitude "28.656301" .
+i:_bng_redFort locn:longitude "77.241021" .
+i:redFort gn:nearby i:2945859685 .
+i:redFort gn:nearby i:lotusTemple .
+
+i:lotusTemple sc:name "Lotus Temple" .
+i:lotusTemple rdf:type s:Monument .
+i:lotusTemple locn:address i:_bna_lotusTemple .
+i:lotusTemple dcterms:description "The Lotus Temple, located in New Delhi, India, is a Bahá'í House of Worship completed in 1986. Notable for its flowerlike shape, it serves as the Mother Temple of the Indian subcontinent and has become a prominent attraction in the city. The Lotus Temple has won numerous architectural awards and been featured in hundreds of newspaper and magazine articles.[1] Like all Bahá'í Houses of Worship, the Lotus Temple is open to all, regardless of religion or any other qualification. The building is composed of 27 free-standing marble-clad \"petals\" arranged in clusters of three to form nine sides,[2][not in citation given] with nine doors opening onto a central hall with height of slightly over 40 metres[3] and a capacity of 2,500 people.[4] A 2001 CNN report referred to it as the most visited building in the world." .
+i:_bna_lotusTemple rdf:type locn:Address .
+i:_bna_lotusTemple locn:fullAddress "Shambhu Dayal Bagh, Kalkaji, New Delhi" .
+i:_bna_lotusTemple locn:geometry i:_bng_lotusTemple .
+i:_bng_lotusTemple rdf:type locn:Geometry .
+i:_bng_lotusTemple locn:latitude "28.554102" .
+i:_bng_lotusTemple locn:longitude "77.258889" .
+i:lotusTemple gn:nearby i:redFort .
+i:lotusTemple gn:nearby i:qutbMinar .
+i:lotusTemple gn:nearby i:2945859685 .
+
+i:indiraAirport sc:name "Indira Gandhi International Airport" .
+i:indiraAirport rdf:type s:EventVenue .
+i:indiraAirport locn:address i:_bna_indiraAirport .
+i:indiraAirport dcterms:description "Indira Gandhi International Airport (IATA: DEL, ICAO: VIDP) serves as the primary civilian aviation hub for the National Capital Region of Delhi, India. The airport, spread over an area of 5,106 acres (2,066 ha),[6] is situated in Palam, 15 km (9.3 mi) south-west of the New Delhi railway station and 16 km (9.9 mi) from New Delhi city centre.[7][8] Named after Indira Gandhi, a former Prime Minister of India, it is the busiest airport in the country in terms of passenger traffic since 2009. It is busiest airport in the country in terms of cargo traffic in the recent year overtaking Mumbai during late 2015.[9] With the commencement of operations at Terminal 3 in 2010, it became India's and South Asia's largest aviation hub, with a current capacity of handling more than 40 million passengers. The planned expansion program will increase the airport's capacity to handle 100 million passengers by 2030.[10] In 2015, the airport was the 25th busiest airport in the world by passenger traffic and 12th busiest airports in Asia, handling approximately 46 million passengers (a 16% growth in traffic over the previous year)." .
+i:_bna_indiraAirport rdf:type locn:Address .
+i:_bna_indiraAirport locn:geometry i:_bng_indiraAirport .
+i:_bng_indiraAirport rdf:type locn:Geometry .
+i:_bng_indiraAirport locn:latitude "28.556398" .
+i:_bng_indiraAirport locn:longitude "77.099926" .
+i:indiraAirport gn:nearby i:leela .
