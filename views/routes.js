@@ -27,8 +27,8 @@ module.exports = function (state, prev, send) {
   return html`
     <div class="row">
       <div>
-        <a href="#planning">Planning</a>
-        <a href="#routes" class="disabled">Possible Routes</a>
+         <a href="#planning" ><button type="button" class="myButton" >Explore Around Button</button></a>
+        <a href="#routes" class="disabled"><button type="button" class="myButton" >Find Routes Button</button></a>
       </div>
       <main class="content">
         <div class="select-stop">

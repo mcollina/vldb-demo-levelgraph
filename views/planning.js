@@ -15,10 +15,12 @@ module.exports = function (state, prev, send) {
   }
 
   return html`
-    <div class="row">
-      <div>
-        <a href="#planning" class="disabled">Planning</a>
-        <a href="#routes">Possible Routes</a>
+    <div class="row" >
+
+      <div >
+      <a href="#planning" class="disabled"><button type="button" class="myButton" >Explore Around Button</button></a>
+      <a href="#routes"><button type="button" class="myButton" >Find Routes Button</button></a>
+
       </div>
       <main class="content">
         <h1>Trip planning in New Delhi</h1>
