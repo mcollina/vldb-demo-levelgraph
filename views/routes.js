@@ -26,24 +26,27 @@ module.exports = function (state, prev, send) {
 
   return html`
     <div class="row">
+    <br>
       <div>
-         <a href="#planning" ><button type="button" class="myButton" >Explore Around Button</button></a>
-        <a href="#routes" class="disabled"><button type="button" class="myButton" >Find Routes Button</button></a>
+         <a href="#planning" ><button type="button" class="myButton">Explore Places Nearby</button></a>
+         <span style="display:inline-block; width: 3em;"></span>
+        <a href="#routes" class="disabled"><button type="button" class="myButton">Find Your Itinerary</button></a>
+        <br><br>
       </div>
       <main class="content">
         <div class="select-stop">
           <form>
-            Select the starting point:
+            <h3>Starting point:</h3>
             <select id="startIdSelector">
               ${monuments.map(monument)}
             </select>
-            Select the number of steps:
+            <h3>Number of hops:</h3>
             <select id="stepsSelector">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3" selected>3</option>
             </select>
-            Select the arriving point:
+            <h3>Destination point:</h3>
             <select id="endIdSelector">
               ${monuments.map(monument)}
             </select>

@@ -10,14 +10,15 @@ module.exports = function (state, prev, send) {
   let phrase
 
   if (!state.plan.last) {
-    phrase = 'Select your first stop'
+    phrase = 'Where are you now?'
   } else {
-    phrase = 'Select nearby attractions'
+    phrase = 'Where do you want to go next?'
   }
 
   return html`
-    <div class="select-stop">
+    <div class="select-stop"><h3>
       ${phrase}:
+      </h3>
       <form>
         <select>
           ${monuments.map(monument)}
