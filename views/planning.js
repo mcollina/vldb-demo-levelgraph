@@ -3,6 +3,7 @@
 const html = require('choo/html')
 const plan = require('./plan')
 const steps = require('./steps')
+const popup = require('./popup')
 
 module.exports = function (state, prev, send) {
   // fetch the monuments'
@@ -16,7 +17,8 @@ module.exports = function (state, prev, send) {
 
   return html`
     <div class="row" >
-       <br>
+      ${popup(state, prev, send)}
+      <br>
       <div>
         <a href="#planning" ><button type="button" class="myButton">Explore Places Nearby</button></a>
         <span style="display:inline-block; width: 3em;"></span>

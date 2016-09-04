@@ -1,5 +1,7 @@
 'use strict'
 
+var track = require('./track')
+
 module.exports = function build (queries) {
   return {
     namespace: 'plan',
@@ -51,9 +53,9 @@ module.exports = function build (queries) {
     effects: {
       fetchMonuments: (data, state, send, done) => {
         if (data && data.id) {
-          queries.nearby(data.id, result)
+          queries.nearby(data.id, result, track)
         } else {
-          queries.monuments(result)
+          queries.monuments(result, track)
         }
 
         function result (err, body) {
@@ -85,7 +87,7 @@ module.exports = function build (queries) {
 
             send('plan:fetchMonuments', monument, done)
           })
-        })
+        }, track)
       },
       popAndFetch: (data, state, send, done) => {
         send('plan:pop', function (err) {

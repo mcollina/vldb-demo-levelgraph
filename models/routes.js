@@ -1,5 +1,7 @@
 'use strict'
 
+var track = require('./track')
+
 module.exports = function build (queries) {
   return {
     namespace: 'routes',
@@ -55,7 +57,7 @@ module.exports = function build (queries) {
     },
     effects: {
       fetchMonuments: (data, state, send, done) => {
-        queries.monuments(result)
+        queries.monuments(result, track)
 
         function result (err, body) {
           if (err) {
@@ -66,7 +68,7 @@ module.exports = function build (queries) {
         }
       },
       calculate: (data, state, send, done) => {
-        const stream = queries.steps(data)
+        const stream = queries.steps(data, track)
         var list = []
 
         stream.on('end', done)
