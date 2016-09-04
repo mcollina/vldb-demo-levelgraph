@@ -6,7 +6,7 @@ module.exports = function (state, prev, send) {
   const results = []
   const values = state.routes.routes.values()
   for (let val of values) {
-    results.push(asPath(val))
+    results.push(asPath(val, send))
   }
   return html`
     <div class="routes-list">
@@ -15,14 +15,19 @@ module.exports = function (state, prev, send) {
   `
 }
 
-function asPath (path) {
+function asPath (path, send) {
   return html`
-    <div class="path">
+    <div class="path" style="cursor: pointer;" onclick=${onclick}>
       <ol>
         ${path.map(asList)}
       </ol>
     </div>
   `
+
+  function onclick () {
+    send('plan:selectPath', path)
+    send('location:setLocation', { location: '/planning' })
+  }
 }
 
 function asList (elem) {

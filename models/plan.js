@@ -89,6 +89,35 @@ module.exports = function build (queries) {
           })
         }, track)
       },
+      selectPath: (data, state, send, done) => {
+        const array = [].concat(data) // do not alter this
+        var monument = null
+        fetch()
+
+        function fetch () {
+          const place = array.shift()
+
+          if (!place) {
+            send('plan:fetchMonuments', monument, done)
+            return
+          }
+
+          queries.details(place.id, (err, body) => {
+            if (err) {
+              return done(err)
+            }
+
+            monument = body.reduce((obj, triple) => {
+              const property = triple.predicate.replace(/^.*(#|\/)/,'')
+              obj[property] = triple.object.replace(/^"/, '').replace(/"$/, '')
+              return obj
+            }, {})
+
+            monument.id = place.id
+            send('plan:select', monument, fetch)
+          }, track)
+        }
+      },
       popAndFetch: (data, state, send, done) => {
         send('plan:pop', function (err) {
           if (err) {
