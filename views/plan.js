@@ -24,7 +24,7 @@ module.exports = function (state, prev, send) {
         <select>
           ${monuments.map(monument)}
         </select>
-        <button onclick=${act} class="buttonSmall">select</button>
+        <button onclick=${act} class="buttonSmallLong">Select</button>
       </form>
     </div>
   `

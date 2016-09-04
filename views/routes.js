@@ -36,27 +36,37 @@ module.exports = function (state, prev, send) {
         <br><br>
       </div>
       <main class="content">
-        <img src="/chain_query.png" align="left" width="300px"  border="3" style="border-color: #6495ED;">
+          <div id="multicolumn">
+            <div id="onecolumn">
+                <img src="/chain_query.png" align="left" height="137px"  border="3" style="border-color: #6495ED;">
+              </div>
+            <div id="onecolumn">
+                <div class="select-stop">
+                          <form align="left">
+                            <h3 class="message" align="left">Current Position:</h3>
+                            <select id="startIdSelector">
+                              ${monuments.map(monument)}
+                            </select>
+                            <br>
+                            <h3 class="message" align="left">Number of hops:</h3>
+                            <select id="stepsSelector">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3" selected>3</option>
+                            </select>
+                             <br>
+                            <h3 class="message" align="left">Destination:</h3>
+                            <select id="endIdSelector">
+                              ${monuments.map(monument)}
+                            </select>
+                            <br><br>
+                            <button onclick=${act} align="center" class="buttonSmallLong" style="display:inline-block;">Calculate</button>
+                          </form>
+                        </div>
+              </div>
+          </div>
 
-        <div class="select-stop">
-          <form>
-            <h3 class="message">Current Position:</h3>
-            <select id="startIdSelector">
-              ${monuments.map(monument)}
-            </select>
-            <h3 class="message">Num. of hops:</h3>
-            <select id="stepsSelector">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3" selected>3</option>
-            </select>
-            <h3 class="message">Destination:</h3>
-            <select id="endIdSelector">
-              ${monuments.map(monument)}
-            </select>
-            <button onclick=${act} class="buttonSmall" style="display:inline-block;">Calculate</button>
-          </form>
-        </div>
+
         <br>
         ${count}
         ${list}
