@@ -17,7 +17,7 @@ module.exports = function (state, prev, send) {
 
   return html`
     <div class="select-stop">
-      <h3>
+      <h3 class="message">
         ${phrase}
       </h3>
       <form>
