@@ -11,8 +11,11 @@ const bankai = require('bankai')
 const serveStatic = require('serve-static')
 const qs = require('qs')
 const through = require('through2')
+const minimist = require('minimist')
 
-const db = require('level')('./db')
+const args = minimist(process.argv.slice(2))
+
+const db = !args.redis ? require('level')('./db') : require('levelup')('db', { db: require('redisdown'), host: 'localhost', port: 6379 })
 const levelgraph = require('levelgraph')
 const levelgraphN3 = require('levelgraph-n3')
 
@@ -24,17 +27,20 @@ const graph = levelgraphN3(levelgraph(db))
 
 const queries = require('./lib/queries')(graph)
 
-fs.readFile('./all_tripleList.n3', function (err, data) {
-  if (err) {
-    throw err
-  }
-
-  graph.n3.put(data, function (err) {
+db.on('ready', function () {
+  logger.logger.info('db ready, start import')
+  fs.readFile('./all_tripleList.n3', function (err, data) {
     if (err) {
       throw err
     }
 
-    logger.logger.info('data imported')
+    graph.n3.put(data, function (err) {
+      if (err) {
+        throw err
+      }
+
+      logger.logger.info('data imported')
+    })
   })
 })
 
