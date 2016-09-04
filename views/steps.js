@@ -28,9 +28,19 @@ function monument (monument) {
       <ul>
         <li><h4>Latitude: ${monument.latitude}</h4></li>
         <li><h4>Longitude: ${monument.longitude}</h4></li>
-        <li><h4>Description: ${monument.description}</h4></li>
+        ${description(monument)}
       </ul>
     </div>
+  `
+}
+
+function description (monument) {
+  if (!monument.description) {
+    return null
+  }
+
+  return html`
+    <li><h4>Description: ${monument.description}</h4></li>
   `
 }
 
