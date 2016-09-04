@@ -36,8 +36,9 @@ function monument (monument) {
 
 function remove (monument, send) {
   return html`
-    <a href="#" onclick=${pop}>(Go Back)</a>
-  `
+    <a href="#" onclick=${pop} class="buttonSmall">>Go Back</a>
+
+      `
 
   function pop () {
     send('plan:popAndFetch')

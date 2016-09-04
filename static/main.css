@@ -102,14 +102,14 @@ h4 {
 }
 
 .main-footer h4 {
-    color: #006400;
-    font-family: "calibri";
+    color: #1aa10d; /* #006400; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.2em;
 }
 
 .main-footer h4 a {
     color: #1C39BB;
-    font-family: "calibri";
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.2em;
 }
 
@@ -124,8 +124,8 @@ h4 {
 }
 
 .content h3 {
-  color: #014901;
-  font-family: 'Helvetica Neue', sans-serif;
+  color: #1aa10d; /*#014901; */
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .monument {

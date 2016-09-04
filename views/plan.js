@@ -12,7 +12,7 @@ module.exports = function (state, prev, send) {
   if (!state.plan.last) {
     phrase = 'Where are you now?'
   } else {
-    phrase = 'Where do you want to go next?'
+    phrase = 'Where would you like to move?'
   }
 
   return html`
