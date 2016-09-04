@@ -68,35 +68,19 @@ h2 {
 }
 */
 
-h3 .message {
+.message {
     display: inline-block;
     style="float: left;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     color: #1aa10d;
 }
 
-h3 .place {
+.place {
     display: inline-block;
     style="float: left;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     color: #6495ED;
 }
-
-
-
-h4 .attribute {
-    display: inline;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #1C39BB;
-}
-
-h4 .value {
-    display: inline;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: #5B5B5B;
-}
-
-
 
 /*
 .main-header .description {
@@ -121,17 +105,19 @@ h4 .value {
     color: #1aa10d; /* #006400; */
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.2em;
+    display: inline-block;
 }
 
 .main-footer h4 a {
     color: #1C39BB;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.2em;
+    display: inline-block;
 }
 
 .content {
   padding-top: 1em;
-  flex: 1 1 auto;
+  /*flex: 1 1 auto;*/
   min-width: 400px;
 }
 
@@ -140,7 +126,7 @@ h4 .value {
 }
 
 .content h3 {
-  color: #1aa10d; /*#014901; */
+  color: #1aa10d; /* #014901; */
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
@@ -154,6 +140,18 @@ h4 .value {
 .monument h2 a {
   padding-left: 0.5em;
   color: black;
+}
+
+.attribute  {
+    display: inline-block;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #6495ED;
+}
+
+.value {
+    display: inline-block;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #5B5B5B;
 }
 
 .select-stop {
@@ -190,50 +188,6 @@ button {
 .path ul {
   margin: 0.5em;
 }
-
-/* Added by Antonio */
-
-/*
-.myButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	box-shadow:inset 0px 1px 0px 0px #9acc85;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
-	background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
-	background-color:#FF8C00;
-	border:1px solid #3b6e22;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:'Helvetica Neue', sans-serif;
-	font-size:25px;
-	font-weight:bold;
-	padding:16px 30px;
-	text-decoration:none;
-}
-
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
-	background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
-	background-color:#FF8C00;
-
-}
-
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-*/
 
 .myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;

@@ -24,11 +24,11 @@ function monument (monument) {
 
   return html`
     <div class="monument">
-    <h3>${monument.name}${removable}</h3>
+    <h3>${monument.name}<span style="display:inline-block; width: 0.5em;"></span>${removable}</h3>
       <ul>
-        <li><h4>Latitude: ${monument.latitude}</h4></li>
-        <li><h4>Longitude: ${monument.longitude}</h4></li>
-        <li><h4>Description: ${monument.description}</h4></li>
+        <li><h4 class="attribute">Latitude: </h4> <h4 class="value">${monument.latitude}</h4></li>
+        <li><h4 class="attribute">Longitude: </h4> <h4 class="value">${monument.longitude}</h4></li>
+        <li><h4 class="attribute">Description: </h4> <h4 class="value">${monument.description}</h4></li>
       </ul>
     </div>
   `
@@ -36,7 +36,7 @@ function monument (monument) {
 
 function remove (monument, send) {
   return html`
-    <a href="#" onclick=${pop} class="buttonSmall">>Go Back</a>
+    <a href="#" onclick=${pop} class="buttonSmall" style="display:inline-block;">>Go Back</a>
 
       `
 

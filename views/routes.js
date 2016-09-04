@@ -36,14 +36,15 @@ module.exports = function (state, prev, send) {
         <br><br>
       </div>
       <main class="content">
-      <img src="/chain_query.png" align="left" width="200px" height="100px"  >
+        <img src="/chain_query.png" align="left" width="300px"  border="3" style="border-color: #6495ED;">
+
         <div class="select-stop">
           <form>
-            <h3 class="message">Starting point:</h3>
+            <h3 class="message">Current Position:</h3>
             <select id="startIdSelector">
               ${monuments.map(monument)}
             </select>
-            <h3>Number of hops:</h3>
+            <h3 class="message">Num. of hops:</h3>
             <select id="stepsSelector">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -53,7 +54,7 @@ module.exports = function (state, prev, send) {
             <select id="endIdSelector">
               ${monuments.map(monument)}
             </select>
-            <button onclick=${act} class="buttonSmall">Calculate</button>
+            <button onclick=${act} class="buttonSmall" style="display:inline-block;">Calculate</button>
           </form>
         </div>
         <br>

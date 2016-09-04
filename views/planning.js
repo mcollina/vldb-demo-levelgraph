@@ -26,8 +26,9 @@ module.exports = function (state, prev, send) {
         <br><br>
       </div>
       <main class="content">
-        ${steps(state, prev, send)}
+
         ${plan(state, prev, send)}
+        ${steps(state, prev, send)}
       </main>
     </div>
   `

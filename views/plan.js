@@ -18,7 +18,7 @@ module.exports = function (state, prev, send) {
   return html`
     <div class="select-stop">
       <h3 class="message">
-        ${phrase}
+        <img src="/star_query.png"  width="200px"   border="3" style="border-color: #6495ED;"> ${phrase}
       </h3>
       <form>
         <select>
