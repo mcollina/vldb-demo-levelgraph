@@ -158,6 +158,10 @@ h2 {
   padding-bottom: 2em;
 }
 
+.stepPath {
+
+}
+
 button {
   padding: 0.5em;
   background-color: white;
@@ -183,6 +187,8 @@ button {
   margin: 0.5em;
   padding: 1em;
   border-radius: 0.5em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #5B5B5B;
 }
 
 .path ul {
@@ -323,7 +329,7 @@ button {
 	font-family:Arial;
 	font-size:20px;
 	font-weight:bold;
-	padding:10px 50px;
+	padding:10px 70px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #5b6178;
 }
@@ -372,3 +378,17 @@ button {
 
 #multicolumn { vertical-align:top; }
 #onecolumn { display:inline-block;vertical-align:top;}
+
+
+select {
+  cursor: pointer;
+  font-size: 30px;
+  height: 35px;
+  text-color: red;
+  /*
+  display: inline-block;
+  position: relative;
+  width: $select-width;
+  */
+
+}

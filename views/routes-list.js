@@ -32,6 +32,6 @@ function asPath (path, send) {
 
 function asList (elem) {
   return html`
-    <li>${elem.name.trim().replace(/^"/, '').replace(/"$/, '')}</li>
+    <li class="stepPath">${elem.name.trim().replace(/^"/, '').replace(/"$/, '')}</li>
   `
 }

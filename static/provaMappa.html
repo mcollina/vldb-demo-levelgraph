@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+	var map; // La mappa
+	var geocoder; // Il
+	var directionsDisplay; // Visualizza i tragitti
+	var directionsService; // Calcola i tragitti
+	var markersArray = []; // Array che contiene i marcatori dei punti cliccati
+
+	// Funzione di inizializzazione, viene lanciata al caricamento della pagina
+	function initialize(){
+		var posizioneIniziale = new google.maps.LatLng(41.8565947, 12.4895644);
+		var myOptions = {zoom: 8, center: posizioneIniziale, mapTypeId: google.maps.MapTypeId.ROADMAP,
+			panControl: false,
+			zoomControl: false,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: false,
+			overviewMapControl: false
+			};
+		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		directionsService = new google.maps.DirectionsService();
+		geocoder = new google.maps.Geocoder();
+		// Aggiungo dei listener sugli eventi della mappa
+		google.maps.event.addListener(map, 'click', function(event){geocode2address(event.latLng);});
+		google.maps.event.addListener(map, 'dblclick', nonFareNulla);
+		google.maps.event.addListener(map, 'mousedown', nonFareNulla);
+		google.maps.event.addListener(map, 'mouseup', nonFareNulla);
+		google.maps.event.addListener(map, 'mouseover', nonFareNulla);
+		google.maps.event.addListener(map, 'mouseout', nonFareNulla);
+		google.maps.event.addListener(map, 'rightclick', nonFareNulla);
+
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+	}
+
+	// Shows any overlays currently in the array
+	function show() {
+		if (markersArray) {
+			for (i in markersArray) {
+				markersArray[i].setMap(map);
+			}
+		}
+		directionsDisplay.setMap(map);
+	}
+
+	// Remove any overlays currently in the array
+	function clean() {
+		if (markersArray) {
+			for (i in markersArray) {
+				markersArray[i].setMap(null);
+			}
+			markersArray.length = 0;
+			directionsDisplay.setMap(null);
+			directionsDisplay = new google.maps.DirectionsService();
+		}
+	}
+
+	// Hide any overlays currently in the array
+	function hide() {
+		if (markersArray) {
+			for (i in markersArray) {
+				markersArray[i].setMap(null);
+			}
+			directionsDisplay.setMap(null);
+		}
+	}
+
+	// Setta un marker semplice in location, il listener e lo mette nell'array
+	function placeOnlyMarker(location) {
+		var marker = new google.maps.Marker({ position: location, map: map, title:"No info available"});
+		google.maps.event.addListener(marker, 'click', function(){marker.setMap(null);});
+		marker.setDraggable(true);
+		markersArray.push(marker);
+	}
+
+	// TODO:
+	function placeManyMarkers(locations){
+		geocode2address((41.811573428116866, 13.060853462500063));
+		placeOnlyMarker((41.811573428116866, 13.060853462500063));
+		//placeOnlyMarker({41.25, 42,23});
+	}
+
+	// Prende l'indirizzo della text box, lo converte e piazza un Marker con finestra
+	function address2geocode() {
+		var address = document.getElementById("address").value;
+		geocoder.geocode( { 'address': address}, function(results, status) {
+		  if (status == google.maps.GeocoderStatus.OK) {
+			placeWindowMarker(results[0]);
+			var tbox = document.getElementById("output");
+			tbox.value = 'OK';
+		  } else {
+			alert("Geocode was not successful for the following reason: " + status);
+		  }
+		});
+	}
+
+	// Prende una coordinata e piazza un marker con finestra //TODO: nome fuorviante
+	function geocode2address(location) {
+		geocoder.geocode({'latLng': location}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				placeWindowMarker(results[0]);
+				document.getElementById("places").value+=location +",";
+				// var tbox = document.getElementById("output");
+				//tbox.value = 'OK';
+			}
+			else {
+				alert("Geocoder failed due to: " + status);
+			}
+		});
+	}
+
+	// Calcola il percorso tra il primo e il secondo marker dell'array
+	function calcRoute() {
+		var request = {
+			origin: markersArray[0].getPosition(),
+			destination: markersArray[1].getPosition(),
+			travelMode: google.maps.TravelMode.DRIVING,
+			provideRouteAlternatives: false
+		};
+		directionsService.route(request, function(result, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+			  directionsDisplay.setDirections(result);
+			}
+		});
+	}
+
+	// Dato una localitÃ , piazza un Marker con finestra in quella posizione, setta i listener e lo aggiunge nell'array.
+	function placeWindowMarker(result){
+		var marker = new google.maps.Marker({ position: result.geometry.location, map: map, title: result.formatted_address});
+		google.maps.event.addListener(marker, 'click', function(){marker.setMap(null);});
+
+		marker.setDraggable(true);
+		markersArray.push(marker);
+
+		infowindow = new google.maps.InfoWindow();
+
+		contentString = 'types[0]='+result.types[0]+',\n formatted_address='+result.formatted_address+", address_comp[0].short="+result.address_components[0].short_name+", +address_comp[0].long="+result.address_components[0].long_name+", address_comp[0].types[0]="+result.address_components[0].types[0]+", location_type="+result.geometry.location_type+", viewport="+result.geometry.viewport+", bounds="+result.geometry.bounds;
+		infowindow.setContent(contentString);
+		google.maps.event.addListener(marker, 'rightclick', function() {infowindow.open(map,marker);});
+	}
+
+	// Invia i dati di input (stringa con le coordinate di tutti i marker) al server
+	function sendToServer(){
+		 //nomeUtente=prompt("Scrivi il tuo nome","il tuo nome");
+		// document.write("Benvenuto ");
+		// document.write(nomeUtente);
+		document.getElementById("places").value = document.getElementById("places").value.slice(0, document.getElementById("places").value.length -1 );
+		document.getElementById("places").value+="]";
+		$.post("/plan/");
+		document.forms["inputForm"].submit();
+
+		//$("form").submit();
+	}
+
+	// Funzione che serve per vedere se il jquery Ã¨ stato caricato
+	function provaJQuery(){
+		<!-- Questo viene eseguito prima della submit del POST -->
+
+		if (typeof jQuery != 'undefined'){
+		    alert("jQuery loaded");
+		} else {
+		    alert("jQuery not loaded");
+		}
+	}
+
+	//Funzione nil
+	function nonFareNulla(){
+	}
+
+
+	// Registriamo il comportamento del DOM
+	//google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
+<script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: 44.540, lng: -78.546},
+            zoom: 8
+        });
+      }
+    </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfsC7qoUSzdlTqjc1fRK1sV1lzi1UP-04&callback=initMap">
+</script>
+</body>
+</html>

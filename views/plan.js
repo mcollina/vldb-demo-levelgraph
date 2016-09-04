@@ -17,15 +17,24 @@ module.exports = function (state, prev, send) {
 
   return html`
     <div class="select-stop">
-      <h3 class="message">
-        <img src="/star_query.png"  width="200px"   border="3" style="border-color: #6495ED;"> ${phrase}
-      </h3>
-      <form>
-        <select>
-          ${monuments.map(monument)}
-        </select>
-        <button onclick=${act} class="buttonSmallLong">Select</button>
-      </form>
+      <div id="multicolumn">
+          <div id="onecolumn">
+            <img src="/star_query.png"  height="115px"   border="3" style="border-color: #6495ED;">
+          </div>
+          <div id="onecolumn">
+                <h3 class="message" align="left">
+                    ${phrase}
+                </h3>
+                <br>
+               <form align="left">
+                   <select>
+                     ${monuments.map(monument)}
+                   </select>
+                    <br>
+                    <span style="display:inline-block; width: 1em;"></span>
+                   <button onclick=${act} class="buttonSmallLong">Select</button>
+               </form>
+          </div>
     </div>
   `
 
