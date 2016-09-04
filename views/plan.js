@@ -16,14 +16,15 @@ module.exports = function (state, prev, send) {
   }
 
   return html`
-    <div class="select-stop"><h3>
-      ${phrase}:
+    <div class="select-stop">
+      <h3>
+        ${phrase}
       </h3>
       <form>
         <select>
           ${monuments.map(monument)}
         </select>
-        <button onclick=${act}>select</button>
+        <button onclick=${act} class="buttonSmall">select</button>
       </form>
     </div>
   `

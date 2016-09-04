@@ -46,11 +46,11 @@ module.exports = function (state, prev, send) {
               <option value="2">2</option>
               <option value="3" selected>3</option>
             </select>
-            <h3>Destination point:</h3>
+            <h3>Destination:</h3>
             <select id="endIdSelector">
               ${monuments.map(monument)}
             </select>
-            <button onclick=${act}>Calculate</button>
+            <button onclick=${act} class="buttonSmall">Calculate</button>
           </form>
         </div>
         <br>
