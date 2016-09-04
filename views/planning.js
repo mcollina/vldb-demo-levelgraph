@@ -18,9 +18,9 @@ module.exports = function (state, prev, send) {
     <div class="row" >
        <br>
       <div>
-        <a href="#planning" ><button type="button" class="myButton">Explore Places Nearby</button></a>
+        <a href="#planning" class="disabled" ><button type="button" class="button-disable">Explore Places Nearby</button></a>
         <span style="display:inline-block; width: 3em;"></span>
-        <a href="#routes" class="disabled"><button type="button" class="myButton">Find Your Itinerary</button></a>
+        <a href="#routes" ><button type="button" class="myButton">Find Your Itinerary</button></a>
         <br><br>
       </div>
       <main class="content">

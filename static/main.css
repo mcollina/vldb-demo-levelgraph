@@ -51,7 +51,7 @@ body {
   padding-right: 1em;
   color: #FF8C00;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: normal;
   letter-spacing: -1px;
   line-height: 1;
@@ -87,15 +87,21 @@ h4 {
 }
 
 .main-footer {
-  background-color: #BFC1C2;
+  background-color: #FFFFFF; /* #BFC1C2; */
   font-size: 0.6em;
   flex: 0 0 auto;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
 }
 
 .main-footer h4 {
     color: #006400;
+    font-family: "calibri";
+    font-size: 1.2em;
+}
+
+.main-footer h4 a {
+    color: #1C39BB;
     font-family: "calibri";
     font-size: 1.2em;
 }
@@ -226,9 +232,9 @@ button {
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Trebuchet MS;
-	font-size:20px;
+	font-size:24px;
 	font-weight:bold;
-	padding:32px 74px;
+	padding:25px 70px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #cc9f52;
 }
@@ -245,6 +251,34 @@ button {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+
+.button-disable {
+	-moz-box-shadow:inset 0px 1px 0px 0px #edd8be;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #edd8be;
+	box-shadow:inset 0px 1px 0px 0px #edd8be;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0d6b8), color-stop(1, #b0987b));
+	background:-moz-linear-gradient(top, #f0d6b8 5%, #b0987b 100%);
+	background:-webkit-linear-gradient(top, #f0d6b8 5%, #b0987b 100%);
+	background:-o-linear-gradient(top, #f0d6b8 5%, #b0987b 100%);
+	background:-ms-linear-gradient(top, #f0d6b8 5%, #b0987b 100%);
+	background:linear-gradient(to bottom, #f0d6b8 5%, #b0987b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0d6b8', endColorstr='#b0987b',GradientType=0);
+	background-color:#f0d6b8;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d1d1d1;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:24px;
+	font-weight:bold;
+	padding:25px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #cfccc7;
 }
 
 
@@ -302,3 +336,7 @@ button {
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
 }
+
+
+
+
