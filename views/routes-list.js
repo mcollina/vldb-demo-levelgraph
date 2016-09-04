@@ -18,9 +18,9 @@ module.exports = function (state, prev, send) {
 function asPath (path) {
   return html`
     <div class="path">
-      <ul>
+      <ol>
         ${path.map(asList)}
-      </ul>
+      </ol>
     </div>
   `
 }

@@ -24,10 +24,11 @@ function monument (monument) {
 
   return html`
     <div class="monument">
-    <h2>${monument.name}${removable}</h2>
+    <h3>${monument.name}${removable}</h3>
       <ul>
-        <li>Latitude: ${monument.latitude}</li>
-        <li>Longitude: ${monument.longitude}</li>
+        <li><h4>Latitude: ${monument.latitude}</h4></li>
+        <li><h4>Longitude: ${monument.longitude}</h4></li>
+        <li><h4>Description: ${monument.description}</h4></li>
       </ul>
     </div>
   `
@@ -35,7 +36,7 @@ function monument (monument) {
 
 function remove (monument, send) {
   return html`
-    <a href="#" onclick=${pop}>(X)</a>
+    <a href="#" onclick=${pop}>(Go Back)</a>
   `
 
   function pop () {
