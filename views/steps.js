@@ -10,15 +10,15 @@ module.exports = function (state, prev, send) {
 
   return html`
     <div class="monuments">
-      ${selected.map(monument, { last, send })}
+      ${selected.reverse().map(monument, { send })}
     </div>
   `
 }
 
-function monument (monument) {
+function monument (monument, i) {
   let removable = null
 
-  if (!this.last || monument.id === this.last.id) {
+  if (i === 0) {
     removable = remove(monument, this.send)
   }
 
@@ -46,9 +46,8 @@ function description (monument) {
 
 function remove (monument, send) {
   return html`
-    <a href="#" onclick=${pop} class="buttonSmall" style="display:inline-block;">>Go Back</a>
-
-      `
+    <span> <a href="#" onclick=${pop} class="buttonSmall" style="display:inline-block;"> > Go Back</a></span>
+  `
 
   function pop () {
     send('plan:popAndFetch')
