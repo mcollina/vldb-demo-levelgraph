@@ -28,7 +28,7 @@ function monument (monument, i) {
       <ul>
         <li><h4 class="attribute">Latitude: </h4> <h4 class="value">${monument.latitude}</h4></li>
         <li><h4 class="attribute">Longitude: </h4> <h4 class="value">${monument.longitude}</h4></li>
-        <li><h4 class="attribute">Description: </h4> <h4 class="value">${monument.description}</h4></li>
+        ${description(monument)}
       </ul>
     </div>
   `
@@ -40,7 +40,7 @@ function description (monument) {
   }
 
   return html`
-    <li><h4>Description: ${monument.description}</h4></li>
+    <li><h4 class="attribute">Description: </h4> <h4 class="value">${monument.description}</h4></li>
   `
 }
 
