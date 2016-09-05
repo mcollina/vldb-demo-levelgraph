@@ -18,7 +18,7 @@ body {
 }
 
 .main-header {
-    margin: auto;
+  margin: auto;
   background-color: white;
   width:1300px;
   flex: 0 0 auto;
@@ -31,27 +31,25 @@ body {
 }
 
 .main-header .system-name {
-/*  font-size: 3em;*/
-  padding-right: 0em;
+  font-size: 3em;
   color: #6495ED;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 50px;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
-  text-align: center;
+  text-align: left;
 }
 
 .main-header .title {
-/*  font-size: 3em;*/
-  padding-right: 0.3em;
   color: #FF8C00;
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 50px;
+  font-size: 3em;
   font-weight: normal;
   letter-spacing: -1px;
   line-height: 1;
-  text-align: center;
+  text-align: right;
+  vertical-align: baseline;
+  max-width: 50%;
 }
 
 .main-header .title h2 {
